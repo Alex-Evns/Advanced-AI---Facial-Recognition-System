@@ -1,0 +1,2 @@
+accuracy,precision,recall,f1,specificity,auc,tp,tn,fp,fn
+0.975,0.975,0.975,0.975,0.975,0.9977999999999999,195,195,5,5
