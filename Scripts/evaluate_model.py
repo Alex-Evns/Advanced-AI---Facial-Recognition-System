@@ -33,7 +33,7 @@ ATTRIBUTE = sys.argv[1].lower()
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-TEST_DIR = PROJECT_ROOT / "data" / ATTRIBUTE / "test"
+TEST_DIR = PROJECT_ROOT / "Data" / ATTRIBUTE / "test"
 
 MODEL_PATH = (
     PROJECT_ROOT
@@ -64,12 +64,23 @@ RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 print(f"\nEvaluating {ATTRIBUTE} model...")
 
+# Explicitly specify class order to match training
+if ATTRIBUTE == "glasses":
+    class_names = ["no_glasses", "glasses"]
+elif ATTRIBUTE == "hat":
+    class_names = ["no_hat", "hat"]
+elif ATTRIBUTE == "young":
+    class_names = ["not_young", "young"]
+else:
+    raise ValueError(f"Unknown attribute: {ATTRIBUTE}")
+
 test_ds = tf.keras.utils.image_dataset_from_directory(
     TEST_DIR,
     image_size=(224, 224),
     batch_size=32,
     label_mode="binary",
-    shuffle=False
+    shuffle=False,
+    class_names=class_names  # Use same class order as training
 )
 
 # =====================================================

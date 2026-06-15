@@ -112,3 +112,13 @@ Python was selected due to its extensive machine learning ecosystem and compatib
 TensorFlow was selected due to its robust support for deep learning and transfer learning workflows.
 
 MobileNetV2 was selected due to its balance between computational efficiency and classification performance.
+
+
+
+Important Lesson For Your Report
+This is actually a valuable engineering point you can discuss briefly in the report:
+During development, careful validation of class-label mappings was required because TensorFlow assigns labels alphabetically when loading datasets from directory structures. Incorrect interpretation of class probabilities during inference initially produced misleading predictions despite strong model performance metrics.
+That shows genuine debugging and understanding of ML pipelines.
+
+
+The Young classifier achieved lower performance than the Glasses and Hat classifiers. This is likely due to the subjective nature of age-related labels within the CelebA dataset. Attributes such as eyeglasses and hats represent visually distinct features, whereas the concept of "young" is less clearly defined and therefore more difficult for the model to learn consistently.

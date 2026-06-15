@@ -62,12 +62,24 @@ WEIGHTS_PATH = (
 
 print(f"\nTraining model: {ATTRIBUTE}")
 
+# Explicitly specify class order to match semantic meaning:
+# We want positive class (has attribute) to be label 1, negative to be label 0
+if ATTRIBUTE == "glasses":
+    class_names = ["no_glasses", "glasses"]  # negative first, positive second
+elif ATTRIBUTE == "hat":
+    class_names = ["no_hat", "hat"]  # negative first, positive second
+elif ATTRIBUTE == "young":
+    class_names = ["not_young", "young"]  # negative first, positive second
+else:
+    raise ValueError(f"Unknown attribute: {ATTRIBUTE}")
+
 train_ds = tf.keras.utils.image_dataset_from_directory(
     TRAIN_DIR,
     image_size=IMAGE_SIZE,
     batch_size=BATCH_SIZE,
     label_mode="binary",
-    shuffle=True
+    shuffle=True,
+    class_names=class_names  # Explicitly set class order
 )
 
 print("\nCLASS NAMES:")
@@ -78,7 +90,8 @@ val_ds = tf.keras.utils.image_dataset_from_directory(
     image_size=IMAGE_SIZE,
     batch_size=BATCH_SIZE,
     label_mode="binary",
-    shuffle=False
+    shuffle=False,
+    class_names=class_names  # Use same class order for validation
 )
 
 AUTOTUNE = tf.data.AUTOTUNE
