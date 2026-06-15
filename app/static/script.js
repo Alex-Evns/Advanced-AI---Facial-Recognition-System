@@ -46,16 +46,33 @@ analyseButton.addEventListener("click", async function () {
         const predictions = data.predictions;
 
         resultsDiv.innerHTML = `
-            <h2>Predictions</h2>
+        <h2>Predictions</h2>
 
+        <div class="prediction-card">
             <p>Glasses: ${(predictions.glasses * 100).toFixed(1)}%</p>
+            <div class="bar">
+                <div class="fill" style="width: ${predictions.glasses * 100}%"></div>
+            </div>
+        </div>
+
+        <div class="prediction-card">
             <p>Hat: ${(predictions.hat * 100).toFixed(1)}%</p>
+            <div class="bar">
+                <div class="fill" style="width: ${predictions.hat * 100}%"></div>
+            </div>
+        </div>
+
+        <div class="prediction-card">
             <p>Young: ${(predictions.young * 100).toFixed(1)}%</p>
+            <div class="bar">
+                <div class="fill" style="width: ${predictions.young * 100}%"></div>
+            </div>
+        </div>
 
-            <h2>Agent Analysis</h2>
+        <h2>Agent Analysis</h2>
 
-            <pre>${data.analysis}</pre>
-        `;
+        <pre>${data.analysis}</pre>
+    `;
 
     } catch (error) {
         resultsDiv.innerHTML = "<p>An error occurred while analysing the image.</p>";
