@@ -70,6 +70,9 @@ train_ds = tf.keras.utils.image_dataset_from_directory(
     shuffle=True
 )
 
+print("\nCLASS NAMES:")
+print(train_ds.class_names)
+
 val_ds = tf.keras.utils.image_dataset_from_directory(
     VAL_DIR,
     image_size=IMAGE_SIZE,

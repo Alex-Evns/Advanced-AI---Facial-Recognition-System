@@ -26,6 +26,9 @@ results = predict_attributes(
     image_path
 )
 
+print("\nRAW MODEL OUTPUTS")
+print(results)
+
 print("\nPredictions")
 
 for attribute, value in results.items():
