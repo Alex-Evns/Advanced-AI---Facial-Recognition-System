@@ -92,7 +92,7 @@ def predict_attributes(image_path):
     )
 
     return {
-        "glasses": glasses_prob,
-        "hat": hat_prob,
-        "young": young_prob
+        "glasses": 1 - glasses_prob,  # Invert: model outputs P(no_glasses), we want P(glasses)
+        "hat": 1 - hat_prob,          # Invert: model outputs P(no_hat), we want P(hat)
+        "young": young_prob           # Correct: model outputs P(young)
     }
