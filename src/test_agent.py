@@ -36,6 +36,12 @@ for attribute, value in results.items():
     print(
         f"{attribute}: {value:.4f}"
     )
+    
+
+
+print(f"Glasses probability : {results['glasses']:.2%}")
+print(f"Hat probability      : {results['hat']:.2%}")
+print(f"Young probability    : {results['young']:.2%}")
 
 # =====================================================
 # AGENT ANALYSIS

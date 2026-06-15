@@ -32,8 +32,8 @@ LEARNING_RATE = 0.001
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-TRAIN_DIR = PROJECT_ROOT / "data" / ATTRIBUTE / "train"
-VAL_DIR = PROJECT_ROOT / "data" / ATTRIBUTE / "validation"
+TRAIN_DIR = PROJECT_ROOT / "Data" / ATTRIBUTE / "train"
+VAL_DIR = PROJECT_ROOT / "Data" / ATTRIBUTE / "validation"
 
 MODEL_PATH = (
     PROJECT_ROOT
