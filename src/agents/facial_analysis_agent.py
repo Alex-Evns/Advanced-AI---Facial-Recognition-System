@@ -6,18 +6,19 @@ def analyse_face(predictions):
 
     summary = []
 
+
     # Glasses
 
     if glasses >= 0.5:
 
         summary.append(
-            f"The subject is likely wearing glasses ({glasses:.1%} confidence)."
+            f"Glasses detected ({glasses:.1%} confidence)."
         )
 
     else:
 
         summary.append(
-            f"The subject is unlikely to be wearing glasses ({1-glasses:.1%} confidence)."
+            f" No Glasses detected ({glasses:.1%} confidence)."
         )
 
     # Hat
@@ -25,27 +26,28 @@ def analyse_face(predictions):
     if hat >= 0.5:
 
         summary.append(
-            f"The subject is likely wearing a hat ({hat:.1%} confidence)."
+            f"Hat detected ({hat:.1%} confidence)."
         )
 
     else:
 
         summary.append(
-            f"No hat was detected ({1-hat:.1%} confidence)."
+            f" No Hat detected ({hat:.1%} confidence)."
         )
+
 
     # Young
 
     if young >= 0.5:
 
         summary.append(
-            f"The subject appears young ({young:.1%} confidence)."
+            f"Young detected ({young:.1%} confidence)."
         )
 
     else:
 
         summary.append(
-            f"The subject does not appear young ({1-young:.1%} confidence)."
+            f"Not young detected ({1-young:.1%} confidence)."
         )
 
     return "\n".join(summary)
