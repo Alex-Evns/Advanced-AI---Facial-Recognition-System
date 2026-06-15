@@ -18,7 +18,7 @@ def analyse_face(predictions):
     else:
 
         summary.append(
-            f" No Glasses detected ({glasses:.1%} confidence)."
+            f" No Glasses detected ({1-glasses:.1%} confidence)."
         )
 
     # Hat
@@ -32,7 +32,7 @@ def analyse_face(predictions):
     else:
 
         summary.append(
-            f" No Hat detected ({hat:.1%} confidence)."
+            f" No Hat detected ({1-hat:.1%} confidence)."
         )
 
 
