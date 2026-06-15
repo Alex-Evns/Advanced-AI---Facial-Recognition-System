@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Facial Recognition Agent</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Facial Recognition Agent</h1>
+
+        <p>
+            Upload an image to analyse facial attributes.
+        </p>
+
+        <input
+            type="file"
+            id="imageInput"
+            accept="image/*">
+
+        <br><br>
+
+        <button id="analyseButton">
+
+            Analyse Image
+
+        </button>
+
+        <br><br>
+
+        <img
+            id="preview"
+            width="300"
+            style="display:none;">
+
+        <div id="results">
+
+        </div>
+
+    </div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
